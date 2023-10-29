@@ -3,49 +3,28 @@ package zelda.enemy;
 import java.util.Random;
 import zelda.karacter.Direction;
 
-/**
- *
- * @author Christiaan
- */
-public class RandomBehavior extends Behavior 
-{
-    private WhiteSoldier soldier;
+import static java.lang.System.currentTimeMillis;
 
-    private long inputInterval = 5000;
-	private long lastInput = System.currentTimeMillis();
+public class RandomBehavior extends Behavior {
 
-    public RandomBehavior(WhiteSoldier soldier)
-    {
+    private static final long INPUT_INTERVAL = 5000;
+    private static final Direction[] DIRECTIONS =
+            {Direction.UP, Direction.LEFT, Direction.RIGHT, Direction.DOWN};
+
+    private final WhiteSoldier soldier;
+    private long lastInput = currentTimeMillis();
+    private final Random random = new Random();
+
+    public RandomBehavior(WhiteSoldier soldier) {
         this.soldier = soldier;
     }
-    
-    public void behave()
-    {
-        if (System.currentTimeMillis() > lastInput + inputInterval)
-		{
-            Random random = new Random();
-            int r = random.nextInt(3);
 
-            switch (r)
-            {
-                case 0:
-                    soldier.setDirection(Direction.UP);
-                    break;
-
-                case 1:
-                    soldier.setDirection(Direction.LEFT);
-                    break;
-
-                case 2:
-                    soldier.setDirection(Direction.RIGHT);
-                    break;
-
-                case 3:
-                    soldier.setDirection(Direction.DOWN);
-                    break;
-            }
-
-            lastInput = System.currentTimeMillis();
+    public void behave() {
+        if (currentTimeMillis() > lastInput + INPUT_INTERVAL) {
+            int randomIndex = random.nextInt(DIRECTIONS.length);
+            Direction randomDirection = DIRECTIONS[randomIndex];
+            soldier.setDirection(randomDirection);
+            lastInput = currentTimeMillis();
         }
     }
 }

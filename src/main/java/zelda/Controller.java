@@ -6,138 +6,70 @@ import javax.swing.JFrame;
 import zelda.engine.GObject;
 import zelda.engine.Game;
 
-/**
- * The Controller is reponsible for the gameloop.
- * And it handles user keyinput for the game.
- *
- * @author maartenhus
- */
-public class Controller implements Runnable, KeyListener
-{
-	private Thread thread;
-	private Game game;
-	private View view;
-	private PolyCreator polyCreator;
+public class Controller implements Runnable, KeyListener {
 
-	public Controller(Game game, View view, JFrame frame)
-	{
+	private final Game game;
+	private final View view;
+
+	public Controller(Game game, View view, JFrame frame) {
 		this.game = game;
 		this.view = view;
-
 		frame.addMouseListener(new PolyCreator(game));
 		frame.addKeyListener(this);
-
-		thread = new Thread(this, "GameLoop");
+		Thread thread = new Thread(this, "GameLoop");
 		thread.start();
 	}
 
-	/**
-	 * This function represents the gameloop, it does stuff like make objects
-	 * react on input and draw the game.
-	 */
-	public void run()
-	{
-		while (game.isRunning())
-		{
-			try
-			{
-				if(!game.isPaused())
-				{
-					game.getScene().handleInput(); // let scene handle user input for menu's etc.
-						
-					game.getLink().handleInput(); // let link handle key input.
-
-					for(GObject obj : game.getScene().getGObjects())
-					{
-						obj.doInLoop(); // this lets the GObject hook in on the gameloop
+	public void run() {
+		while (game.isRunning()) {
+			try {
+				if(!game.isPaused()) {
+					game.getScene().handleInput();
+					game.getLink().handleInput();
+					for(GObject obj : game.getScene().getGObjects()) {
+						obj.doInLoop();
 					}
 				}
-
-                try
-                {
+                try {
                     view.draw();
-                }catch(Exception e){}
-				
+                } catch(Exception ignored){}
 				Thread.sleep(game.getGameSpeed());
-			}
-			catch (InterruptedException e){}
+			} catch (InterruptedException ignored){}
 		}
-
-		// if the game is not running close up.
 		view.exitFullScreen();
 		game.quit();
 	}
 
-	public void keyPressed(KeyEvent e)
-	{
-		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-		{
-			game.setRunning(false); //quit game
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			game.setRunning(false);
 		}
-
-		if (e.getKeyCode() == KeyEvent.VK_P)
-		{
-			game.setPaused(!game.isPaused()); //pauze game
+		if (e.getKeyCode() == KeyEvent.VK_P) {
+			game.setPaused(!game.isPaused());
 		}
-
-		switch(e.getKeyCode())
-		{
-			case KeyEvent.VK_A:
-				game.setaPressed(true);
-				break;
-			case KeyEvent.VK_D:
-				game.setdPressed(true);
-				break;
-			case KeyEvent.VK_W:
-				game.setwPressed(true);
-				break;
-			case KeyEvent.VK_S:
-				game.setsPressed(true);
-				break;
-			case KeyEvent.VK_J:
-				game.setjPressed(true);
-				break;
-			case KeyEvent.VK_K:
-				game.setkPressed(true);
-				break;
-			case KeyEvent.VK_L:
-				game.setlPressed(true);
-				break;
-			case KeyEvent.VK_ENTER:
-				game.setEnterPressed(true);
-				break;
-		}
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_A -> game.setAPressed(true);
+            case KeyEvent.VK_D -> game.setDPressed(true);
+            case KeyEvent.VK_W -> game.setWPressed(true);
+            case KeyEvent.VK_S -> game.setSPressed(true);
+            case KeyEvent.VK_J -> game.setJPressed(true);
+            case KeyEvent.VK_K -> game.setKPressed(true);
+            case KeyEvent.VK_L -> game.setLPressed(true);
+            case KeyEvent.VK_ENTER -> game.setEnterPressed(true);
+        }
 	}
 
-	public void keyReleased(KeyEvent e)
-	{
-		switch(e.getKeyCode())
-		{
-			case KeyEvent.VK_A:
-				game.setaPressed(false);
-				break;
-			case KeyEvent.VK_D:
-				game.setdPressed(false);
-				break;
-			case KeyEvent.VK_W:
-				game.setwPressed(false);
-				break;
-			case KeyEvent.VK_S:
-				game.setsPressed(false);
-				break;
-			case KeyEvent.VK_J:
-				game.setjPressed(false);
-				break;
-			case KeyEvent.VK_K:
-				game.setkPressed(false);
-				break;
-			case KeyEvent.VK_L:
-				game.setlPressed(false);
-				break;
-			case KeyEvent.VK_ENTER:
-				game.setEnterPressed(false);
-				break;
-		}
+	public void keyReleased(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_A -> game.setAPressed(false);
+            case KeyEvent.VK_D -> game.setDPressed(false);
+            case KeyEvent.VK_W -> game.setWPressed(false);
+            case KeyEvent.VK_S -> game.setSPressed(false);
+            case KeyEvent.VK_J -> game.setJPressed(false);
+            case KeyEvent.VK_K -> game.setKPressed(false);
+            case KeyEvent.VK_L -> game.setLPressed(false);
+            case KeyEvent.VK_ENTER -> game.setEnterPressed(false);
+        }
 	}
 
 	public void keyTyped(KeyEvent e){}

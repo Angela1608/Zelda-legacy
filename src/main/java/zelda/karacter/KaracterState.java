@@ -1,27 +1,23 @@
 package zelda.karacter;
 
-/**
- * This is the superclass for states. 
- *
- * @author maartenhus
- */
-public abstract class KaracterState
-{
-	protected Karacter karacter;
-	protected String name;
+public abstract class KaracterState {
 
-	public KaracterState(Karacter karacter)
-	{
-		this.karacter = karacter;
-		karacter.resetAnimationCounter();
-	}
+    protected Karacter karacter;
+    protected String name;
 
-	public void handleInput(){};
-	public void handleAnimation(){};
+    public KaracterState(Karacter karacter) {
+        this.karacter = karacter;
+        karacter.resetAnimationCounter();
+    }
 
-	@Override
-	public String toString()
-	{
-		return name;
-	}
+    public void handleInput() {
+    }
+
+    public void handleAnimation() {
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

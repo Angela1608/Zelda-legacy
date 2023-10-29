@@ -2,36 +2,26 @@ package zelda.items;
 
 import zelda.enemy.Behavior;
 
-/**
- *
- * @author vincentklarholz
- */
-public class BombBehavior extends Behavior
-{
-    private Bomb bomb;
+import static java.lang.System.currentTimeMillis;
 
-    private long animationInterval = 50;
-    private long lastAnimation = System.currentTimeMillis();
+public class BombBehavior extends Behavior {
 
+    private static final long ANIMATION_INTERVAL = 50;
+    private final Bomb bomb;
+    private long lastAnimation = currentTimeMillis();
     private int ticks = 0;
 
-    public BombBehavior(Bomb bomb )
-    {
+    public BombBehavior(Bomb bomb) {
         this.bomb = bomb;
     }
-	
-    public void behave()
-    {
-        if (System.currentTimeMillis() > lastAnimation + animationInterval) // if it time to reanimate
-        {
-            if(ticks == 49)
-            {
+
+    public void behave() {
+        if (currentTimeMillis() > lastAnimation + ANIMATION_INTERVAL) {
+            if (ticks == 49) {
                 bomb.setAlive(false);
             }
-
-            lastAnimation = System.currentTimeMillis();
+            lastAnimation = currentTimeMillis();
             ticks++;
         }
     }
-
 }

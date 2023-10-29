@@ -4,11 +4,138 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eecc13c9-c756-49d3-8fb3-300e242b7f77" name="Changes" comment="" />
+    <list default="true" id="eecc13c9-c756-49d3-8fb3-300e242b7f77" name="Changes" comment="added files from the legacy project">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/PolyCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/PolyCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/collision/Hittable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/collision/Hittable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/collision/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/collision/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/AttackBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/AttackBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/Behavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/Behavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/BlueSoldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/BlueSoldier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/BossSoldier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/GhostSoldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/GhostSoldier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/PatrolBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/PatrolBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/RandomBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/RandomBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/Soldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/Soldier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/StandState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/TransState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/TransState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/WalkState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/WalkState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/WhiteSoldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/WhiteSoldier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/armos/ArmosKnight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/armos/ArmosKnight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/armos/AttackState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/armos/AttackState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/enemy/armos/TransState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/enemy/armos/TransState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/DrawAble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/Drawable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/GObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/GObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/GObjectComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/GObjectComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/Music.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/SoundFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/SoundFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/engine/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/engine/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/aftitel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/aftitel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/armos.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/armos.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/arrows.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/arrows.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/battle-dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/battle-dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/battle-scene.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/battle-scene.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/blue-soldier.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/blue-soldier.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/bombs.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/bombs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/boss.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/boss.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/castle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/castle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/castlebasement.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/castlebasement.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/death.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/death.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/fairy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/fairy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/forrest-scene.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/forrest-scene.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/guihearts2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/guihearts2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/heart1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/heart1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/help-menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/help-menu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/hiddenpath.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/hiddenpath.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/hyrule.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/hyrule.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/items.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/items.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/kerker.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/kerker.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/link-house.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/link-house.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/link.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/link.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/main-menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/main-menu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/oppakken.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/oppakken.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/rupee.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/rupee.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/rupeegui2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/rupeegui2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/images/white-soldier.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/white-soldier.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/BombBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/BombBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/Bush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/Bush.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/Guard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/Guard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/GuiHeart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/GuiHeart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/GuiRupee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/GuiRupee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/Heart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/Heart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/Rupee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/Rupee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/items/Warp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/items/Warp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/karacter/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/karacter/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/karacter/Karacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/karacter/Karacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/karacter/KaracterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/karacter/KaracterState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/BowState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/BowState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/DeathState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/DeathState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/Link.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/LinkState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/LinkState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/StandState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/StandState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/SwordState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/SwordState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/TransState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/TransState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/link/WalkState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/link/WalkState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/menu/Fairy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/menu/Fairy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/menu/HelpMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/menu/HelpMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/menu/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/ArmosScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/ArmosScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/BattleScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/BattleScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/CastleBasementScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/CastleBasementScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/CastleScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/CastleScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/CreditScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/CreditScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/DungeonScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/DungeonScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/ForrestScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/ForrestScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/HiddenScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/HiddenScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/HouseScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/HouseScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/HyruleScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/HyruleScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/scene/ZeldaScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/zelda/scene/ZeldaScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/bombExplode.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/bombExplode.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/boss-bgm.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/boss-bgm.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/bowArrow.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/bowArrow.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/bushCut.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/bushCut.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/castle.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/castle.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/cave.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/cave.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/credits.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/credits.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/enemyDie.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/enemyDie.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/enemyHit.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/enemyHit.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/fanfare.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/fanfare.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/getItem.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/getItem.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/getRupee.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/getRupee.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/help-menu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/help-menu.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/killed.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/killed.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/linkBounce.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/linkBounce.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/linkHurt.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/linkHurt.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/main-menu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/main-menu.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/overworld.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/overworld.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/swordSlash1.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/swordSlash1.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/swordSlash2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/swordSlash2.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/swordSlash3.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/swordSlash3.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/zelda/sounds/swordSlash4.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/swordSlash4.mp3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,14 +146,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/angel/IdeaProjects/zelda-legacy/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\angel\IdeaProjects\zelda-legacy\src\main\resources" />
+      <recent name="C:\Users\angel\IdeaProjects\zelda-legacy\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\angel\IdeaProjects\zelda-legacy\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="zelda.Main" />
+      <module name="zelda-legacy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="zelda.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -35,8 +201,72 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694615333285</updated>
-      <workItem from="1694615334395" duration="9000" />
+      <workItem from="1694615334395" duration="4529000" />
+      <workItem from="1694625222113" duration="415000" />
+      <workItem from="1694674913147" duration="27328000" />
+      <workItem from="1695110335121" duration="761000" />
+      <workItem from="1696235591169" duration="24227000" />
+      <workItem from="1696351903682" duration="50000" />
+      <workItem from="1696404696187" duration="859000" />
+      <workItem from="1696583365522" duration="2331000" />
+      <workItem from="1696591705535" duration="13575000" />
+      <workItem from="1696696391499" duration="665000" />
+      <workItem from="1696919784778" duration="593000" />
+      <workItem from="1697005794229" duration="1110000" />
+      <workItem from="1697181583334" duration="2572000" />
+      <workItem from="1697206790007" duration="452000" />
+      <workItem from="1697625313908" duration="574000" />
+      <workItem from="1697721371165" duration="574000" />
+      <workItem from="1697722667285" duration="12787000" />
+      <workItem from="1698146108205" duration="285000" />
+      <workItem from="1698218495295" duration="1116000" />
+      <workItem from="1698308884480" duration="458000" />
+      <workItem from="1698492946163" duration="13381000" />
+      <workItem from="1698577884039" duration="13847000" />
+      <workItem from="1698593387782" duration="11395000" />
     </task>
+    <task id="LOCAL-00001" summary="added files from the legacy project">
+      <option name="closed" value="true" />
+      <created>1694615454627</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694615454627</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added files from the legacy project" />
+    <option name="LAST_COMMIT_MESSAGE" value="added files from the legacy project" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((NullPointerException)NullPointerException1808_DebugLabel).cause" custom="java.lang.NullPointerException" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

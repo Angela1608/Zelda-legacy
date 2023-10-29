@@ -4,19 +4,18 @@ import zelda.engine.Game;
 import zelda.karacter.KaracterState;
 
 /**
- * Superclass for link's state.
- * 
- * @author maartenhus
+ * Represents the base class for Link's different states in the game.
+ * This class extends the generic character state and provides a foundation
+ * for specific Link states.
  */
-public class LinkState extends KaracterState
-{
-	protected Link link;
-	protected Game game;
+public class LinkState extends KaracterState {
 
-	public LinkState(Link link)
-	{
-		super(link);
-		this.link = link;
-		this.game = link.getGame();
-	}
+    protected Link link;
+    protected Game game;
+
+    public LinkState(Link link) {
+        super(link);
+        this.link = link;
+        this.game = link.getGame();
+    }
 }

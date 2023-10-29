@@ -4,100 +4,34 @@ import zelda.karacter.Direction;
 import zelda.karacter.Karacter;
 import zelda.link.Link;
 
-/**
- *
- * @author vincentklarholz
- */
-public class AttackBehavior extends Behavior
-{
+public class AttackBehavior extends Behavior {
 
-    private Karacter soldier;
-    private Link link;
+    private final Karacter soldier;
+    private final Link link;
 
-    private int valueX;
-    private int valueY;
-
-	public AttackBehavior(Karacter soldier)
-	{
-        //System.out.println("here");
-		this.soldier = soldier;
+    public AttackBehavior(Karacter soldier) {
+        this.soldier = soldier;
         link = soldier.getGame().getLink();
-	}
+    }
 
-	public void behave()
-    {
-        valueX = Math.abs(link.getX() - soldier.getX());
-        valueY = Math.abs(link.getY() - soldier.getY());
+    public void behave() {
+        int dx = link.getX() - soldier.getX();
+        int dy = link.getY() - soldier.getY();
+        Direction newDirection = calculateNewDirection(dx, dy);
+        if (newDirection != soldier.getDirection()) {
+            soldier.setDirection(newDirection);
+        }
+        int newX = soldier.getX() + Integer.signum(dx);
+        int newY = soldier.getY() + Integer.signum(dy);
+        soldier.setX(newX);
+        soldier.setY(newY);
+    }
 
-        //check which direct between link and soldier is longer, X or Y
-        if(valueX < valueY)
-        {
-            //Set new direction for soldier
-            //Soldier up
-            if(link.getY() < soldier.getY())
-            {
-                soldier.setY(soldier.getY() - 1);
-                if(soldier.getDirection() != Direction.UP)
-                {
-                    soldier.setDirection(Direction.UP);
-                }
-
-            }
-            //Soldier downw
-            else if(link.getY() > soldier.getY())
-            {
-                soldier.setY(soldier.getY() + 1);
-                if(soldier.getDirection() != Direction.DOWN)
-                {
-                    soldier.setDirection(Direction.DOWN);
-                }
-            }
-        }
-        else
-        {
-            //Set new direction for soldier
-            //Soldier left
-            if(link.getX() < soldier.getX())
-            {
-                soldier.setX(soldier.getX() - 1);
-                if(soldier.getDirection() != Direction.LEFT)
-                {
-                  soldier.setDirection(Direction.LEFT);
-                }
-            }
-            //Soldier right
-            else if(link.getX() > soldier.getX())
-            {
-                soldier.setX(soldier.getX() + 1);
-                if(soldier.getDirection() != Direction.RIGHT)
-                {
-                    soldier.setDirection(Direction.RIGHT);
-                }
-            }
-        }
-
-        //Set new X for soldier
-        //Soldier left
-        if(link.getX() < soldier.getX())
-        {
-            soldier.setX(soldier.getX() - 1);
-        }
-        //Soldier right
-        else if(link.getX() > soldier.getX())
-        {
-            soldier.setX(soldier.getX() + 1);
-        }
-
-        //Set new Y for soldier
-        //Soldier up
-        if(link.getY() < soldier.getY())
-        {
-            soldier.setY(soldier.getY() - 1);
-        }
-        //Soldier downw
-        else if(link.getY() > soldier.getY())
-        {
-            soldier.setY(soldier.getY() + 1);
+    private Direction calculateNewDirection(int dx, int dy) {
+        if (Math.abs(dx) >= Math.abs(dy)) {
+            return (dx > 0) ? Direction.RIGHT : Direction.LEFT;
+        } else {
+            return (dy > 0) ? Direction.DOWN : Direction.UP;
         }
     }
 }

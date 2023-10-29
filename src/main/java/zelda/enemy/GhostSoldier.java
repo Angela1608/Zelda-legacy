@@ -5,63 +5,51 @@ import zelda.collision.Weapon;
 import zelda.engine.Game;
 import zelda.karacter.Direction;
 
-/**
- * A White soldier.
- *
- * @author maartenhus
- */
-public class GhostSoldier extends Soldier implements Hittable
-{
+import static java.lang.System.currentTimeMillis;
 
-    public GhostSoldier(Game game, int x, int y, Direction direction)
-    {
-        super(game, x, y, direction, "images/boss.png");
+public class GhostSoldier extends Soldier implements Hittable {
+
+    private static final String IMAGE_PATH = "images/boss.png";
+    private static final String SOUND_PATH_ENEMY_HIT = "sounds/enemyHit.mp3";
+    private static final String SOUND_PATH_ENEMY_DIE = "sounds/enemyDie.mp3";
+    private static final int WEAPON_HIT_DELAY_MS = 800;
+    private static final int SWORD_ARROW_DAMAGE = 3;
+    private static final int BOMB_DAMAGE = 10;
+    private static final int INITIAL_HEALTH = 20;
+
+    public GhostSoldier(Game game, int x, int y, Direction direction) {
+        super(game, x, y, direction, IMAGE_PATH);
         behavior = new AttackBehavior(this);
-        health = 20;
+        health = INITIAL_HEALTH;
     }
 
-    public void hitBy(Weapon weapon)
-    {
-        if (health >= 1)
-        {
-            game.playFx("sounds/enemyHit.mp3");
+    public void hitBy(Weapon weapon) {
+        if (health >= 1) {
+            game.playFx(SOUND_PATH_ENEMY_HIT);
         }
+        handleWeaponHit(weapon);
+        handleEnemyDeath();
+    }
 
-        switch (weapon)
-        {
-            case SWORD:
-                if (health > 0 && System.currentTimeMillis() > lastHit + 800)
-                {
-                    lastHit = System.currentTimeMillis();
-                    health -= 3;
-                    setState(new TransState(this, game.getLink().getDirection()));
-                }
-                break;
-
-            case BOMB:
-                if (health > 0 && System.currentTimeMillis() > lastHit + 800)
-                {
-                    lastHit = System.currentTimeMillis();
-                    health -= 10;
-                    setState(new TransState(this, game.getLink().getDirection()));
-                }
-                break;
-
-            case ARROW:
-                if (health > 0 && System.currentTimeMillis() > lastHit + 800)
-                {
-                    lastHit = System.currentTimeMillis();
-                    health -= 3;
-                    setBehavior(new AttackBehavior(this));
-                }
-                break;
-        }
-
-        if (health <= 0)
-        {
+    private void handleEnemyDeath() {
+        if (health <= 0) {
             alive = false;
-            game.playFx("sounds/enemyDie.mp3");
+            game.playFx(SOUND_PATH_ENEMY_DIE);
             randomGoodie();
+        }
+    }
+
+    private void handleWeaponHit(Weapon weapon) {
+        int damage = switch (weapon) {
+            case SWORD, ARROW -> SWORD_ARROW_DAMAGE;
+            case BOMB -> BOMB_DAMAGE;
+        };
+        if (health > 0 && currentTimeMillis() > lastHit + WEAPON_HIT_DELAY_MS) {
+            lastHit = currentTimeMillis();
+            health -= damage;
+            if (weapon == Weapon.ARROW || weapon == Weapon.BOMB) {
+                setState(new TransState(this, game.getLink().getDirection()));
+            }
         }
     }
 }

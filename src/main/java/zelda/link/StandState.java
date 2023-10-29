@@ -1,61 +1,38 @@
 package zelda.link;
 
-/**
- * State for when link is standing still.
- *
- * @author maartenhus
- */
-public class StandState extends LinkState
-{
-	private final static String[] downAnimation	= {"Link stand down"};
-	private final static String[] upAnimation	= {"Link stand up"};
-	private final static String[] leftAnimation	= {"Link stand left"};
-	private final static String[] rightAnimation= {"Link stand right"};
+public class StandState extends LinkState {
 
-	public StandState(Link link)
-	{
-		super(link);
-		name = "StandState";
+    private static final String[] STAND_DOWN_ANIMATION = {"Link stand down"};
+    private static final String[] STAND_UP_ANIMATION = {"Link stand up"};
+    private static final String[] STAND_LEFT_ANIMATION = {"Link stand left"};
+    private static final String[] STAND_RIGHT_ANIMATION = {"Link stand right"};
 
-		switch (link.getDirection())
-		{
-			case UP:
-				link.setAnimation(upAnimation);
-				break;
+    public StandState(Link link) {
+        super(link);
+        name = "StandState";
+        setAnimationForDirection(link);
+    }
 
-			case DOWN:
-				link.setAnimation(downAnimation);
-				break;
-
-			case LEFT:
-				link.setAnimation(leftAnimation);
-				break;
-
-			case RIGHT:
-				link.setAnimation(rightAnimation);
-				break;
-		}
-	}
-
-	@Override
-	public void handleInput()
-	{
-		if (game.isjPressed())
-		{
-			link.setState(new SwordState(link));
-		}
-        else if(game.islPressed())
-        {
+    @Override
+    public void handleInput() {
+        if (game.isJPressed()) {
+            link.setState(new SwordState(link));
+        } else if (game.isLPressed()) {
             link.dropBomb();
-        }
-        else if(game.iskPressed())
-        {
+        } else if (game.isKPressed()) {
             link.shootArrow();
+        } else {
+            if (link.moveInput())
+                link.setState(new WalkState(link));
         }
-		else
-		{
-			if (link.moveinput())
-				link.setState(new WalkState(link));
-		}
-	}
+    }
+
+    private void setAnimationForDirection(Link link) {
+        switch (link.getDirection()) {
+            case UP -> link.setAnimation(STAND_UP_ANIMATION);
+            case DOWN -> link.setAnimation(STAND_DOWN_ANIMATION);
+            case LEFT -> link.setAnimation(STAND_LEFT_ANIMATION);
+            case RIGHT -> link.setAnimation(STAND_RIGHT_ANIMATION);
+        }
+    }
 }

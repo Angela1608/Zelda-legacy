@@ -1,40 +1,30 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package zelda.scene;
 
 import java.awt.Rectangle;
 import zelda.engine.Game;
 
-/**
- *
- * @author Christiaan
- */
-public class CreditScene extends ZeldaScene
-{
-    public CreditScene(Game game)
-    {
-        super(game, "images/aftitel.png", "CreditScene");
+public class CreditScene extends ZeldaScene {
 
-         if (!game.getSong().equals("sounds/credits.mp3"))
-            {
+    private static final String IMAGE_AFTITEL = "images/aftitel.png";
+    private static final String SOUND_CREDIT = "sounds/credits.mp3";
+
+    public CreditScene(Game game) {
+        super(game, IMAGE_AFTITEL, "CreditScene");
+        initializeMusic(game);
+    }
+
+    @Override
+    public void handleSwitchScene(Rectangle exit) {
+    }
+
+    @Override
+    public void handleSwitchScene(String entrance) {
+    }
+
+    private void initializeMusic(Game game) {
+        if (!game.getSong().equals(SOUND_CREDIT)) {
             game.stopMusic();
-            game.playMusic("sounds/credits.mp3", true);
-            }
+            game.playMusic(SOUND_CREDIT, true);
+        }
     }
-
-    @Override
-    public void handleSwitchScene(Rectangle exit)
-    {
-       
-    }
-
-    @Override
-    public void handleSwitchScene(String entrance)
-    {
-        
-    }
-
 }

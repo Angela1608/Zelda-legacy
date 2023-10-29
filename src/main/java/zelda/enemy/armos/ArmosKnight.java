@@ -1,6 +1,8 @@
 package zelda.enemy.armos;
 
 import java.awt.Rectangle;
+import lombok.Getter;
+import lombok.Setter;
 import zelda.collision.Hittable;
 import zelda.collision.Weapon;
 import zelda.enemy.AttackBehavior;
@@ -9,119 +11,71 @@ import zelda.engine.Game;
 import zelda.karacter.Direction;
 import zelda.karacter.Karacter;
 
-/**
- *
- * @author Christiaan
- */
-public class ArmosKnight extends Karacter implements Hittable
-{
-    protected Behavior behavior;
-    protected long inputInterval = 40;
-    protected long lastInput = System.currentTimeMillis();
-    protected long lastHit = System.currentTimeMillis();
+import static java.lang.System.currentTimeMillis;
 
-    public ArmosKnight(Game game, int x, int y, Direction direction)
-    {
-        super(game, x, y, 32, 52, direction, "images/armos.png");
+@Getter
+@Setter
+public class ArmosKnight extends Karacter implements Hittable {
 
-        spriteLoc.put("1", new Rectangle(0, 0, 32, 52));
-        spriteLoc.put("2", new Rectangle(32, 0, 32, 52));
-        spriteLoc.put("3", new Rectangle(64, 0, 32, 52));
-        spriteLoc.put("4", new Rectangle(96, 0, 32, 52));
-        spriteLoc.put("5", new Rectangle(128, 0, 32, 52));
-        spriteLoc.put("6", new Rectangle(160, 0, 32, 52));
-        spriteLoc.put("7", new Rectangle(192, 0, 32, 52));
-        spriteLoc.put("8", new Rectangle(224, 0, 32, 52));
-        spriteLoc.put("9", new Rectangle(256, 0, 32, 52));
-        spriteLoc.put("10", new Rectangle(288, 0, 32, 52));
+    private static final String IMAGE_PATH = "images/armos.png";
+    private static final String HIT_SOUND_PATH = "sounds/enemyHit.mp3";
+    private static final String DEATH_SOUND_PATH = "sounds/enemyDie.mp3";
+    private static final int MAX_HEALTH = 25;
+    private static final int HIT_COOLDOWN_MS = 800;
+    private static final long INPUT_INTERVAL_MS = 40;
+    private static final int SPRITE_WIDTH = 32;
+    private static final int SPRITE_HEIGHT = 52;
+    private static final int NUM_SPRITES = 10;
+    private static final int SWORD_DAMAGE = 3;
+    private static final int BOMB_DAMAGE = 10;
+    private static final int ARROW_DAMAGE = 1;
+    private Behavior behavior;
+    private long lastInput = currentTimeMillis();
+    private long lastHit = currentTimeMillis();
 
-        spriteLoc.put("hit 1", new Rectangle(0, 64, 32, 52));
-        spriteLoc.put("hit 2", new Rectangle(32, 64, 32, 52));
-        spriteLoc.put("hit 3", new Rectangle(64, 64, 32, 52));
-        spriteLoc.put("hit 4", new Rectangle(96, 64, 32, 52));
-        spriteLoc.put("hit 5", new Rectangle(128, 64, 32, 52));
-        spriteLoc.put("hit 6", new Rectangle(160, 64, 32, 52));
-        spriteLoc.put("hit 7", new Rectangle(192, 64, 32, 52));
-        spriteLoc.put("hit 8", new Rectangle(224, 64, 32, 52));
-        spriteLoc.put("hit 9", new Rectangle(256, 64, 32, 52));
-        spriteLoc.put("hit 10", new Rectangle(288, 64, 32, 52));
-
+    public ArmosKnight(Game game, int x, int y, Direction direction) {
+        super(game, x, y, SPRITE_WIDTH, SPRITE_HEIGHT, direction, IMAGE_PATH);
+        for (int i = 1; i <= 10; i++) {
+            spriteLoc.put(Integer.toString(i), new Rectangle((i - 1) * 32, 0, SPRITE_WIDTH, SPRITE_HEIGHT));
+            spriteLoc.put("hit " + i, new Rectangle((i - 1) * 32, 64, SPRITE_WIDTH, SPRITE_HEIGHT));
+        }
         sprite.setSprite(spriteLoc.get("1"));
-
-        health = 25;
-
         state = new AttackState(this);
-
         behavior = new AttackBehavior(this);
-
     }
 
-    public void hitBy(Weapon weapon)
-    {
-        if (health >= 25)
-        {
-            game.playFx("sounds/enemyHit.mp3");
+    public void hitBy(Weapon weapon) {
+        if (health >= MAX_HEALTH) {
+            game.playFx(HIT_SOUND_PATH);
         }
-
-        switch (weapon)
-        {
-            case SWORD:
-                if (health > 0 && System.currentTimeMillis() > lastHit + 800) {
-                    lastHit = System.currentTimeMillis();
-                    health -= 3;
-                    setState(new TransState(this, game.getLink().getDirection()));
-                }
-                break;
-
-            case BOMB:
-                if (health > 0 && System.currentTimeMillis() > lastHit + 800) {
-                    lastHit = System.currentTimeMillis();
-                    health -= 10;
-                    setState(new TransState(this, game.getLink().getDirection()));
-                }
-                break;
-
-            case ARROW:
-                if (health > 0 && System.currentTimeMillis() > lastHit + 800) {
-                    lastHit = System.currentTimeMillis();
-                    health -= 1;
-                    setState(new TransState(this, game.getLink().getDirection()));
-                }
-                break;
+        if (health > 0 && currentTimeMillis() > lastHit + HIT_COOLDOWN_MS) {
+            lastHit = currentTimeMillis();
+            int damage = switch (weapon) {
+                case SWORD -> SWORD_DAMAGE;
+                case BOMB -> BOMB_DAMAGE;
+                case ARROW -> ARROW_DAMAGE;
+            };
+            health -= damage;
+            setState(new TransState(this, game.getLink().getDirection()));
         }
-
-        if (health <= 0)
-        {
+        if (health <= 0) {
             alive = false;
-            game.playFx("sounds/enemyDie.mp3");
+            game.playFx(DEATH_SOUND_PATH);
             randomGoodie();
         }
     }
 
     @Override
-    public void preAnimation()
-    {
+    public void preAnimation() {
         state.handleAnimation();
     }
 
     @Override
-    public void doInLoop()
-    {
-        if (System.currentTimeMillis() > lastInput + inputInterval)
-        {
+    public void doInLoop() {
+        if (currentTimeMillis() > lastInput + INPUT_INTERVAL_MS) {
             state.handleInput();
             behavior.behave();
-            lastInput = System.currentTimeMillis();
+            lastInput = currentTimeMillis();
         }
-    }
-
-    public Behavior getBehavior()
-    {
-        return behavior;
-    }
-
-    public void setBehavior(Behavior behavior)
-    {
-        this.behavior = behavior;
     }
 }

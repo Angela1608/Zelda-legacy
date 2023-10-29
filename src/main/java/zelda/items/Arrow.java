@@ -8,33 +8,107 @@ import zelda.engine.Game;
 import zelda.karacter.Direction;
 import zelda.link.Link;
 
-/**
- *
- * @author frankie
- */
-public class Arrow extends GObject
-{
-    //Arrow animation at the moment only one animation
-    private final static String[] arrowRight    = {"arrowRight"};
-	private final static String[] arrowLeft     = {"arrowLeft"};
-	private final static String[] arrowDown     = {"arrowDown"};
-	private final static String[] arrowUp       = {"arrowUp"};
+public class Arrow extends GObject {
 
-    private final static String[] arrowHitDown	= {"arrowDown1","arrowDown2","arrowDown3","arrowDown1","arrowDown2","arrowDown3"};
-    private final static String[] arrowHitUp	= {"arrowUp1","arrowUp2","arrowUp3","arrowUp1","arrowUp2","arrowUp3"};
-    private final static String[] arrowHitLeft	= {"arrowLeft1","arrowLeft2","arrowLeft3","arrowLeft1","arrowLeft2","arrowLeft3"};
-    private final static String[] arrowHitRight	= {"arrowRight1","arrowRight2","arrowRight3","arrowRight1","arrowRight2","arrowRight3"};
-
-    private final static int SPEED = 3;
+    private static final String IMAGE_PATH = "images/arrows.png";
+    private static final String SOUND_PATH = "sounds/bowArrow.mp3";
+    private static final String[] ARROW_RIGHT = {"arrowRight"};
+    private static final String[] ARROW_LEFT = {"arrowLeft"};
+    private static final String[] ARROW_DOWN = {"arrowDown"};
+    private static final String[] ARROW_UP = {"arrowUp"};
+    private static final String[] ARROW_HIT_DOWN =
+            {"arrowDown1", "arrowDown2", "arrowDown3", "arrowDown1", "arrowDown2", "arrowDown3"};
+    private static final String[] ARROW_HIT_UP =
+            {"arrowUp1", "arrowUp2", "arrowUp3", "arrowUp1", "arrowUp2", "arrowUp3"};
+    private static final String[] ARROW_HIT_LEFT =
+            {"arrowLeft1", "arrowLeft2", "arrowLeft3", "arrowLeft1", "arrowLeft2", "arrowLeft3"};
+    private static final String[] ARROW_HIT_RIGHT =
+            {"arrowRight1", "arrowRight2", "arrowRight3", "arrowRight1", "arrowRight2", "arrowRight3"};
+    private static final int SPEED = 3;
+    private static final int ARROW_WIDTH = 4;
+    private static final int ARROW_HEIGHT = 13;
+    private static final int ANIMATION_INTERVAL = 140;
     private boolean hit = false;
+    private final Direction direction;
 
-    private Direction direction;
-	
-    public Arrow(Game game, int x, int y)
-    {
-        super(game, x, y, 13, 4, "images/arrows.png");
+    public Arrow(Game game, int x, int y) {
+        super(game, x, y, ARROW_WIDTH, ARROW_HEIGHT, IMAGE_PATH);
+        initializeSpriteLoc();
+        setAnimationInterval(ANIMATION_INTERVAL);
+        direction = game.getLink().getDirection();
+        initializeArrowDirection();
+        game.playFx(SOUND_PATH);
+    }
 
-        // Arrow Direction only
+    @Override
+    public void doInLoop() {
+        if (x > game.getScene().getSprite().getWidth()
+                || y > game.getScene().getSprite().getWidth() || x < 0 || y < 0) {
+            alive = false;
+            return;
+        }
+        moveArrow();
+    }
+
+    private void moveArrow() {
+        switch (direction) {
+            case UP -> setY(getY() - SPEED);
+            case DOWN -> setY(getY() + SPEED);
+            case LEFT -> setX(getX() - SPEED);
+            case RIGHT -> setX(getX() + SPEED);
+        }
+    }
+
+    @Override
+    public void preAnimation() {
+        if (hit) {
+            liquid = true;
+            if (animationCounter == ARROW_HIT_DOWN.length) {
+                setAlive(false);
+            }
+        }
+    }
+
+    @Override
+    public void wallCollision() {
+        arrowHitSomething();
+    }
+
+    @Override
+    public void collision(GObject obj) {
+        if (obj instanceof Hittable hittable && !(obj instanceof Link) && !(obj instanceof Bush)) {
+            hittable.hitBy(Weapon.ARROW);
+            alive = false;
+            arrowHitSomething();
+        }
+        if (obj instanceof Guard) {
+            arrowHitSomething();
+        }
+        if (obj instanceof Bush) {
+            handleBushCollision();
+        }
+    }
+
+    private void handleBushCollision() {
+        switch (direction) {
+            case UP -> setYHardCore(getY() - SPEED);
+            case DOWN -> setYHardCore(getY() + SPEED);
+            case LEFT -> setXHardCore(getX() - SPEED);
+            case RIGHT -> setXHardCore(getX() + SPEED);
+        }
+    }
+
+    private void arrowHitSomething() {
+        switch (direction) {
+            case UP -> this.setAnimation(ARROW_HIT_UP);
+            case DOWN -> this.setAnimation(ARROW_HIT_DOWN);
+            case LEFT -> this.setAnimation(ARROW_HIT_LEFT);
+            case RIGHT -> this.setAnimation(ARROW_HIT_RIGHT);
+        }
+        hit = true;
+    }
+
+    private void initializeSpriteLoc() {
         spriteLoc.put("arrowRight", new Rectangle(75, 0, 17, 6));
         spriteLoc.put("arrowLeft", new Rectangle(50, 0, 17, 6));
         spriteLoc.put("arrowDown", new Rectangle(0, 0, 6, 17));
@@ -51,151 +125,30 @@ public class Arrow extends GObject
         spriteLoc.put("arrowLeft1", new Rectangle(0, 100, 12, 7));
         spriteLoc.put("arrowLeft2", new Rectangle(25, 100, 12, 7));
         spriteLoc.put("arrowLeft3", new Rectangle(50, 100, 12, 7));
+    }
 
-        setAnimationInterval(140);
-
-        direction = game.getLink().getDirection();
-
-        switch (direction)
-		{
-            case UP:
+    private void initializeArrowDirection() {
+        switch (direction) {
+            case UP -> {
                 sprite.setSprite(spriteLoc.get("arrowUp"));
-                this.setAnimation(arrowUp);
-                this.setHeight(13);
-                this.setWidth(4);
-                break;
-
-			case DOWN:
+                this.setAnimation(ARROW_UP);
+                this.setHeight(ARROW_HEIGHT);
+                this.setWidth(ARROW_WIDTH);
+            }
+            case DOWN -> {
                 sprite.setSprite(spriteLoc.get("arrowDown"));
-                this.setAnimation(arrowDown);
-                this.setHeight(13);
-                this.setWidth(4);
-				break;
-
-			case LEFT:
+                this.setAnimation(ARROW_DOWN);
+                this.setHeight(ARROW_HEIGHT);
+                this.setWidth(ARROW_WIDTH);
+            }
+            case LEFT -> {
                 sprite.setSprite(spriteLoc.get("arrowLeft"));
-                this.setAnimation(arrowLeft);
-				break;
-
-			case RIGHT:
+                this.setAnimation(ARROW_LEFT);
+            }
+            case RIGHT -> {
                 sprite.setSprite(spriteLoc.get("arrowRight"));
-                this.setAnimation(arrowRight);
-				break;
-		}
-
-		game.playFx("sounds/bowArrow.mp3");
-    }
-
-	@Override
-    public void doInLoop()
-    {
-		// if arrow moves outside of the scene it should die.
-		if (x > game.getScene().getSprite().getWidth() || y > game.getScene().getSprite().getWidth() || x < 0 || y < 0)
-		{
-			alive = false;
-			return;
-		}
-
-        switch (direction)
-		{
-			case UP:
-                setY(getY() - SPEED);
-				break;
-
-			case DOWN:
-                setY(getY() + SPEED);
-				break;
-
-			case LEFT:
-                setX(getX() - SPEED);
-				break;
-
-			case RIGHT:
-                setX(getX() + SPEED);
-				break;
-		}
-    }
-
-	@Override
-    public void preAnimation()
-    {
-        if(hit)
-        {
-            liquid = true;
-            if(animationCounter == animation.length)
-            {
-                setAlive(false);
+                this.setAnimation(ARROW_RIGHT);
             }
         }
-    }
-
-	@Override
-    public void wallCollision()
-    {
-        arrowHitSomething();
-    }
-
-	@Override
-	public void collision(GObject obj)
-	{
-		if (obj instanceof Hittable && !(obj instanceof Link) && !(obj instanceof Bush))
-		{
-			Hittable hittable = (Hittable)obj;
-			hittable.hitBy(Weapon.ARROW);
-            alive = false;
-			arrowHitSomething();
-        }
-
-		if(obj instanceof Guard)
-		{
-			arrowHitSomething();
-		}
-
-		if(obj instanceof Bush)
-		{
-			switch (direction)
-			{
-				case UP:
-					setYHardCore(getY() - SPEED);
-					break;
-
-				case DOWN:
-					setYHardCore(getY() + SPEED);
-					break;
-
-				case LEFT:
-					setXHardCore(getX() - SPEED);
-					break;
-
-				case RIGHT:
-					setXHardCore(getX() + SPEED);
-					break;
-			}
-		}
-	}
-
-    private void arrowHitSomething()
-    {
-        // Arrow wiggel animation
-        switch (direction)
-		{
-			case UP:
-                this.setAnimation(arrowHitUp);
-				break;
-
-			case DOWN:
-                this.setAnimation(arrowHitDown);
-				break;
-
-			case LEFT:
-                this.setAnimation(arrowHitLeft);
-				break;
-
-			case RIGHT:
-                this.setAnimation(arrowHitRight);
-				break;
-		}
-
-        hit = true;
     }
 }

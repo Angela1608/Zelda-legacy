@@ -2,51 +2,40 @@ package zelda.engine;
 
 import java.net.URL;
 import javazoom.jl.player.Player;
+import lombok.extern.slf4j.Slf4j;
 
-/**
- *
- * @author maartenhus
- */
-public abstract class Sound implements Runnable
-{
-	protected Game game;
-	protected Player player;
-	protected Thread th;
-	protected URL mp3;
+import static java.lang.System.currentTimeMillis;
 
-	private static long lastPlayed = System.currentTimeMillis();
-	private static long playInterval = 1000;
-	private static String lastSong = "";
+@Slf4j
+public abstract class Sound implements Runnable {
 
-	public Sound(Game game, URL mp3)
-	{
-		this.game = game;
-		this.mp3  = mp3;
-		th = new Thread(this, mp3.getFile());	
-	}
+    private static long lastPlayed = currentTimeMillis();
+    private static String lastSong = "";
+    protected Game game;
+    protected Player player;
+    protected Thread th;
+    protected URL mp3;
 
-	public void play()
-	{
-		// Don't play the same Music or SoundFx right after eachother.
-		// For example see bushCut.mp3 if multible bushes are cut at the same time just play it once.
-		// Hopefully this will fix the "cant rip 0x00 bug".
-		if (System.currentTimeMillis() > lastPlayed + playInterval || !lastSong.equals(mp3.getFile()))
-		{
-			//System.out.println(mp3.getFile());
-			try
-			{
-				player = new Player(mp3.openStream());
-				th.start();
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-			
-			lastSong = mp3.getFile();
-			lastPlayed = System.currentTimeMillis();
-		}
-	}
+    public Sound(Game game, URL mp3) {
+        this.game = game;
+        this.mp3 = mp3;
+        th = new Thread(this, mp3.getFile());
+    }
 
-	public abstract void run();
+    public void play() {
+        long playInterval = 1000;
+        if (currentTimeMillis() > lastPlayed + playInterval
+                || !lastSong.equals(mp3.getFile())) {
+            try {
+                player = new Player(mp3.openStream());
+                th.start();
+            } catch (Exception e) {
+                log.error("Error occurred while playing: {}", e.getMessage(), e);
+            }
+            lastSong = mp3.getFile();
+            lastPlayed = currentTimeMillis();
+        }
+    }
+
+    public abstract void run();
 }

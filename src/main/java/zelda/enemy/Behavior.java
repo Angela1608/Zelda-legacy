@@ -1,12 +1,11 @@
 package zelda.enemy;
 
-/**
- * Enemies have different behaviors, some patrol an area. Some may stand still
- * an others randomly move around.
- *
- * @author maartenhus
- */
-public abstract class Behavior
-{
-	public abstract void behave();
+public abstract class Behavior {
+
+    /**
+     * Defines the behavior of the enemy.
+     * Implementing classes should override this method to specify
+     * the behavior of the enemy object.
+     */
+    public abstract void behave();
 }
