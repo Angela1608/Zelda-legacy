@@ -75,7 +75,7 @@ public class Link extends Karacter {
 
     protected void collision(GObject hitObject) {
         if (health == 0) {
-            handleDeathState(hitObject);
+            handleDeathState();
         } else if (hitObject instanceof Soldier) {
             handleSoldierCollision((Soldier) hitObject);
         } else if (hitObject instanceof ArmosKnight) {
@@ -87,7 +87,7 @@ public class Link extends Karacter {
         }
     }
 
-    private void handleDeathState(GObject hitObject) {
+    private void handleDeathState() {
         if (!getStateString().equals("DeathState")) {
             game.stopMusic();
             game.playFx(KILLED_SOUND_PATH);

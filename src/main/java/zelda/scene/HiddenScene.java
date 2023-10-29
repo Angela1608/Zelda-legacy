@@ -11,7 +11,7 @@ public class HiddenScene extends ZeldaScene {
 
     private static final String IMAGE_HIDDENPATH = "images/hiddenpath.png";
     public static final String SOUND_CAVE = "sounds/cave.mp3";
-    private Rectangle exitDown = new Rectangle(116, 449, 20, 20);
+    private final Rectangle exitDown = new Rectangle(116, 449, 20, 20);
 
     public HiddenScene(Game game, String entrance) {
         super(game, IMAGE_HIDDENPATH, "HiddenScene");

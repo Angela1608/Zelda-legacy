@@ -9,12 +9,11 @@ public class MainMenu extends Scene {
 
 	public static final String IMAGE_MAIN_MENU = "images/main-menu.png";
     public static final String SOUND_MAIN_MENU = "sounds/main-menu.mp3";
-    private Fairy fairy = new Fairy(game, 210, 215);
+    private final Fairy fairy = new Fairy(game, 210, 215);
     private static int CURRENT = 0;
     private static final int NEW_GAME = 0;
     private static final int LOAD_GAME = 1;
     private static final int HELP = 2;
-    private long inputInterval = 100;
     private long lastInput = System.currentTimeMillis();
 
     public MainMenu(Game game) {
@@ -26,6 +25,7 @@ public class MainMenu extends Scene {
 
     @Override
     public void handleInput() {
+        long inputInterval = 100;
         if (System.currentTimeMillis() > lastInput + inputInterval) {
             checkEnter();
             checkInput();

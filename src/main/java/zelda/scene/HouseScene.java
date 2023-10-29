@@ -12,9 +12,9 @@ public class HouseScene extends ZeldaScene {
 
     public static final String IMAGE_LINK_HOUSE = "images/link-house.png";
     public static final String SOUND_OVERWORLD = "sounds/overworld.mp3";
-    private Rectangle exitUp = new Rectangle(155, 0, 300, 20);
-    private Rectangle exitLeft = new Rectangle(0, 180, 20, 50);
-    private Rectangle exitLeft2 = new Rectangle(0, 250, 20, 90);
+    private final Rectangle exitUp = new Rectangle(155, 0, 300, 20);
+    private final Rectangle exitLeft = new Rectangle(0, 180, 20, 50);
+    private final Rectangle exitLeft2 = new Rectangle(0, 250, 20, 90);
 
     public HouseScene(Game game, String entrance) {
         super(game, IMAGE_LINK_HOUSE, "HouseScene");

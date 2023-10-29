@@ -11,10 +11,10 @@ import zelda.karacter.Direction;
 public class ForrestScene extends ZeldaScene {
 
     private static final String IMAGE_FORREST_SCENE = "images/forrest-scene.png";
-    private Rectangle exitRight1 = new Rectangle(506, 185, 20, 50);
-    private Rectangle exitRight2 = new Rectangle(506, 250, 20, 90);
-    private Rectangle exitUp = new Rectangle(100, 0, 90, 20);
-    private Rectangle warpExit = new Rectangle(393, 108, 16, 16);
+    private final Rectangle exitRight1 = new Rectangle(506, 185, 20, 50);
+    private final Rectangle exitRight2 = new Rectangle(506, 250, 20, 90);
+    private final Rectangle exitUp = new Rectangle(100, 0, 90, 20);
+    private final Rectangle warpExit = new Rectangle(393, 108, 16, 16);
 
     public ForrestScene(Game game, String entrance) {
         super(game, IMAGE_FORREST_SCENE, "ForrestScene");

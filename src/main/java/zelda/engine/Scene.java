@@ -38,7 +38,7 @@ public abstract class Scene implements Drawable {
     }
 
     public void moveScene(int toX, int toY) {
-        boolean moved = false;
+        boolean moved;
         do {
             moved = false;
             if (sprite.getX() < toX) {

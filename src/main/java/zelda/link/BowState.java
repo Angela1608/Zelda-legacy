@@ -16,7 +16,8 @@ public class BowState extends LinkState {
     private static final int LEFT_ANIMATION_X_OFFSET_FIRST = 2;
     private static final int LEFT_ANIMATION_X_OFFSET_SECOND = -2;
     private static final int LEFT_ANIMATION_Y_OFFSET_FIRST = 1;
-    private int oldX, oldY;
+    private final int oldX;
+    private final int oldY;
 
     public BowState(Link link) {
         super(link);

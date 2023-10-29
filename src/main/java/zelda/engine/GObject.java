@@ -26,7 +26,7 @@ public abstract class GObject implements Drawable {
     protected boolean liquid = false;
     protected boolean screenAdjust = true;
     protected Sprite sprite;
-    protected static HashMap<String, Rectangle> spriteLoc = new HashMap<String, Rectangle>();
+    protected static HashMap<String, Rectangle> spriteLoc = new HashMap<>();
     protected String[] animation;
     protected int animationCounter = 0;
     protected long animationInterval;

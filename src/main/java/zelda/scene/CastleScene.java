@@ -31,7 +31,7 @@ public class CastleScene extends ZeldaScene {
         initializePolygons();
         initializeSolids();
         initializeGoObjects();
-        handleMusic(game, entrance);
+        handleMusic(game);
         handleSwitchScene(entrance);
     }
 
@@ -59,7 +59,7 @@ public class CastleScene extends ZeldaScene {
         }
     }
 
-    private void handleMusic(Game game, String entrance) {
+    private void handleMusic(Game game) {
         if (!game.getSong().equals(SOUNDS_CASTLE)) {
             game.stopMusic();
             game.playMusic(SOUNDS_CASTLE, true);

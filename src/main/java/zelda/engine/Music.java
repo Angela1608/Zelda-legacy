@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Music extends Sound {
 
-    private String songName = "";
+    private final String songName;
     private final boolean loop;
 
     public Music(Game game, URL mp3, String songname, boolean loop) {
